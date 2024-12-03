@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R&G Indumentaria</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="welcome-container">
+        <div class="welcome-content">
+            <img src="./img/logo.jpg" alt="R&G Indumentaria" class="welcome-logo">
+            <h1>Bienvenido a R&G Indumentaria</h1>
+            <div class="auth-buttons">
+                <button onclick="mostrarLogin()">Iniciar Sesión</button>
+                <button onclick="mostrarRegistro()">Registrarse</button>
+                <button onclick="window.location.href='hombres.html'" class="guest-button">
+                    Continuar como Invitado
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Login -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="cerrarModal('loginModal')">&times;</span>
+            <h2>Iniciar Sesión</h2>
+            <form id="loginForm" onsubmit="return login(event)">
+                <div class="form-group">
+                    <label for="loginEmail">Email:</label>
+                    <input type="email" id="loginEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Contraseña:</label>
+                    <input type="password" id="loginPassword" required>
+                </div>
+                <button type="submit">Ingresar</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal de Registro -->
+    <div id="registroModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="cerrarModal('registroModal')">&times;</span>
+            <h2>Registro</h2>
+            <form id="registroForm" onsubmit="return registrar(event)">
+                <div class="form-group">
+                    <label for="regNombre">Nombre:</label>
+                    <input type="text" id="regNombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="regEmail">Email:</label>
+                    <input type="email" id="regEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="regPassword">Contraseña:</label>
+                    <input type="password" id="regPassword" required>
+                </div>
+                <button type="submit">Registrarse</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+</body>
+</html> 

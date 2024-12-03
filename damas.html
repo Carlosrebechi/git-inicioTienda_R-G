@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ropa para Damas - Tienda Unisex</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav>
+        <div class="logo-container">
+            <img src="./img/logo.jpg" alt="TIENDA R&G" class="logo">
+        </div>
+        <div class="menu-categorias">
+            <a href="hombres.html" class="tab-btn">Hombres</a>
+            <a href="damas.html" class="tab-btn active">Damas</a>
+            <a href="ninos.html" class="tab-btn">Niños</a>
+        </div>
+        <div class="carrito-icon">
+            <i class="fas fa-shopping-cart"></i>
+            <span id="contador-carrito">0</span>
+        </div>
+    </nav>
+
+    <div class="banner-oferta banner-damas">
+        <div class="banner-contenido">
+            <div class="oferta-texto">
+                <h3>¡COMBO ESPECIAL DAMAS!</h3>
+                <p class="oferta-detalle">1 Jeans + 1 Remera</p>
+                <p class="oferta-destacada">$18.000</p>
+                <p class="oferta-ahorro">¡COMBO IMPERDIBLE!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Resto del contenido específico para damas -->
+    <div class="productos-container">
+        <section id="damas" class="tab-content active">
+            <h2>Ropa para Damas</h2>
+            <div class="productos-grid">
+                <div class="producto">
+                    <img src="https://via.placeholder.com/200x250" alt="Remera Dama">
+                    <h3>Remera Fashion</h3>
+                    <p>$28.00</p>
+                    <button class="agregar-carrito" data-id="d1" data-precio="28">Agregar al Carrito</button>
+                </div>
+                <div class="producto">
+                    <img src="https://via.placeholder.com/200x250" alt="Chomba Dama">
+                    <h3>Chomba Elegante</h3>
+                    <p>$38.00</p>
+                    <button class="agregar-carrito" data-id="d2" data-precio="38">Agregar al Carrito</button>
+                </div>
+                <div class="producto">
+                    <img src="https://via.placeholder.com/200x250" alt="Short Dama">
+                    <h3>Short Jean</h3>
+                    <p>$32.00</p>
+                    <button class="agregar-carrito" data-id="d3" data-precio="32">Agregar al Carrito</button>
+                </div>
+                <div class="producto">
+                    <img src="https://via.placeholder.com/200x250" alt="Jeans Dama">
+                    <h3>Jeans Skinny</h3>
+                    <p>$48.00</p>
+                    <button class="agregar-carrito" data-id="d4" data-precio="48">Agregar al Carrito</button>
+                </div>
+                <div class="producto">
+                    <img src="https://via.placeholder.com/200x250" alt="Buzo Dama">
+                    <h3>Buzo Algodón</h3>
+                    <p>$42.00</p>
+                    <button class="agregar-carrito" data-id="d5" data-precio="42">Agregar al Carrito</button>
+                </div>
+                <div class="producto">
+                    <img src="https://via.placeholder.com/200x250" alt="Sweater Dama">
+                    <h3>Sweater Delicado</h3>
+                    <p>$55.00</p>
+                    <button class="agregar-carrito" data-id="d6" data-precio="55">Agregar al Carrito</button>
+                </div>
+                <div class="producto">
+                    <img src="https://via.placeholder.com/200x250" alt="Joggin Dama">
+                    <h3>Joggin Comfort</h3>
+                    <p>$40.00</p>
+                    <button class="agregar-carrito" data-id="d7" data-precio="40">Agregar al Carrito</button>
+                </div>
+                <div class="producto">
+                    <img src="https://via.placeholder.com/200x250" alt="Ojotas Dama">
+                    <h3>Ojotas Fashion</h3>
+                    <p>$25.00</p>
+                    <button class="agregar-carrito" data-id="d8" data-precio="25">Agregar al Carrito</button>
+                </div>
+                <div class="producto">
+                    <img src="https://via.placeholder.com/200x250" alt="Zapatillas Dama">
+                    <h3>Zapatillas Style</h3>
+                    <p>$65.00</p>
+                    <button class="agregar-carrito" data-id="d9" data-precio="65">Agregar al Carrito</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Carrito y modales -->
+    <div class="carrito-panel" id="carrito-panel">
+        <div class="carrito-header">
+            <h2>Carrito de Compras</h2>
+            <button class="cerrar-carrito" id="cerrar-carrito">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div id="items-carrito"></div>
+        <div class="total">
+            <p>Total: $<span id="total-carrito">0</span></p>
+            <button id="vaciar-carrito">Vaciar Carrito</button>
+            <button id="finalizar-compra" class="finalizar-compra-btn">Finalizar Compra</button>
+        </div>
+    </div>
+
+    <div class="notificacion" id="notificacion">
+        <span id="mensaje-notificacion"></span>
+    </div>
+
+    <div id="checkoutModal" class="modal">
+        <div class="modal-content checkout-modal">
+            <span class="close" onclick="cerrarModal('checkoutModal')">&times;</span>
+            <h2>Finalizar Compra</h2>
+            <div id="checkout-content">
+                <!-- Se llenará dinámicamente -->
+            </div>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+    <script src="script.js"></script>
+
+    <footer class="footer">
+        <div class="carousel-container">
+            <div class="carousel">
+                <div class="carousel-track">
+                    <div class="carousel-slide">
+                        <img src="https://via.placeholder.com/200x100?text=Nike" alt="Nike">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://via.placeholder.com/200x100?text=Adidas" alt="Adidas">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://via.placeholder.com/200x100?text=Puma" alt="Puma">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://via.placeholder.com/200x100?text=Reebok" alt="Reebok">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://via.placeholder.com/200x100?text=UnderArmour" alt="Under Armour">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-content">
+            <div class="footer-info">
+                <h3>R&G Indumentaria</h3>
+                <p>Tu tienda de moda favorita</p>
+            </div>
+            <div class="footer-contact">
+                <p>Contacto: info@rygindumentaria.com</p>
+                <p>Tel: (342) 4066-472</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html> 

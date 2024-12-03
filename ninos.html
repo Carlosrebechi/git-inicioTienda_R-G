@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ropa para Niños - Tienda Unisex</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav>
+        <div class="logo-container">
+            <img src="./img/Logo.jpg" alt="TIENDA R&G" class="logo">
+        </div>
+        <div class="menu-categorias">
+            <a href="hombres.html" class="tab-btn">Hombres</a>
+            <a href="damas.html" class="tab-btn">Damas</a>
+            <a href="ninos.html" class="tab-btn active">Niños</a>
+        </div>
+        <div class="carrito-icon">
+            <i class="fas fa-shopping-cart"></i>
+            <span id="contador-carrito">0</span>
+        </div>
+    </nav>
+
+    <!-- Agregar después del nav y antes del productos-container -->
+    <div class="banner-oferta banner-ninos" id="banner-ninos">
+        <div class="banner-contenido">
+            <div class="oferta-texto">
+                <h3>¡SUPER OFERTAS KIDS!</h3>
+                <p class="oferta-detalle">Short + Remera</p>
+                <p class="oferta-destacada">$12.000</p>
+                <p class="oferta-ahorro">¡COMBO IDEAL PARA EL VERANO!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Resto del contenido específico para niños -->
+    <div class="productos-container">
+        <section id="ninos" class="tab-content active">
+            <h2>Ropa para Niños</h2>
+            <div class="productos-grid">
+                <div class="producto">
+                    <img src="https://via.placeholder.com/200x250" alt="Remera Niños">
+                    <h3>Remera Divertida</h3>
+                    <p>$20.00</p>
+                    <button class="agregar-carrito" data-id="n1" data-precio="20">Agregar al Carrito</button>
+                </div>
+                <div class="producto">
+                    <img src="https://via.placeholder.com/200x250" alt="Chomba Niños">
+                    <h3>Chomba Escolar</h3>
+                    <p>$30.00</p>
+                    <button class="agregar-carrito" data-id="n2" data-precio="30">Agregar al Carrito</button>
+                </div>
+                <div class="producto">
+                    <img src="https://via.placeholder.com/200x250" alt="Short Niños">
+                    <h3>Short Juego</h3>
+                    <p>$25.00</p>
+                    <button class="agregar-carrito" data-id="n3" data-precio="25">Agregar al Carrito</button>
+                </div>
+                <div class="producto">
+                    <img src="https://via.placeholder.com/200x250" alt="Jeans Niños">
+                    <h3>Jeans Kids</h3>
+                    <p>$35.00</p>
+                    <button class="agregar-carrito" data-id="n4" data-precio="35">Agregar al Carrito</button>
+                </div>
+                <div class="producto">
+                    <img src="https://via.placeholder.com/200x250" alt="Buzo Niños">
+                    <h3>Buzo Algodón</h3>
+                    <p>$32.00</p>
+                    <button class="agregar-carrito" data-id="n5" data-precio="32">Agregar al Carrito</button>
+                </div>
+                <div class="producto">
+                    <img src="https://via.placeholder.com/200x250" alt="Sweater Niños">
+                    <h3>Sweater Infantil</h3>
+                    <p>$38.00</p>
+                    <button class="agregar-carrito" data-id="n6" data-precio="38">Agregar al Carrito</button>
+                </div>
+                <div class="producto">
+                    <img src="https://via.placeholder.com/200x250" alt="Joggin Niños">
+                    <h3>Joggin Deportivo</h3>
+                    <p>$30.00</p>
+                    <button class="agregar-carrito" data-id="n7" data-precio="30">Agregar al Carrito</button>
+                </div>
+                <div class="producto">
+                    <img src="https://via.placeholder.com/200x250" alt="Ojotas Niños">
+                    <h3>Ojotas Kids</h3>
+                    <p>$18.00</p>
+                    <button class="agregar-carrito" data-id="n8" data-precio="18">Agregar al Carrito</button>
+                </div>
+                <div class="producto">
+                    <img src="https://via.placeholder.com/200x250" alt="Zapatillas Niños">
+                    <h3>Zapatillas Junior</h3>
+                    <p>$45.00</p>
+                    <button class="agregar-carrito" data-id="n9" data-precio="45">Agregar al Carrito</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Carrito y modales -->
+    <div class="carrito-panel" id="carrito-panel">
+        <div class="carrito-header">
+            <h2>Carrito de Compras</h2>
+            <button class="cerrar-carrito" id="cerrar-carrito">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div id="items-carrito"></div>
+        <div class="total">
+            <p>Total: $<span id="total-carrito">0</span></p>
+            <button id="vaciar-carrito">Vaciar Carrito</button>
+            <button id="finalizar-compra" class="finalizar-compra-btn">Finalizar Compra</button>
+        </div>
+    </div>
+
+    <div class="notificacion" id="notificacion">
+        <span id="mensaje-notificacion"></span>
+    </div>
+
+    <div id="checkoutModal" class="modal">
+        <div class="modal-content checkout-modal">
+            <span class="close" onclick="cerrarModal('checkoutModal')">&times;</span>
+            <h2>Finalizar Compra</h2>
+            <div id="checkout-content">
+                <!-- Se llenará dinámicamente -->
+            </div>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+    <script>
+        // Agregar este script inline para debug
+        console.log('Página de niños cargada');
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('DOM cargado');
+            const bannerNinos = document.querySelector('.banner-ninos');
+            if (bannerNinos) {
+                console.log('Banner de niños encontrado');
+            } else {
+                console.log('Banner de niños no encontrado');
+            }
+        });
+    </script>
+    <script src="script.js"></script>
+
+    <footer class="footer">
+        <div class="carousel-container">
+            <div class="carousel">
+                <div class="carousel-track">
+                    <div class="carousel-slide">
+                        <img src="https://via.placeholder.com/200x100?text=Nike" alt="Nike">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://via.placeholder.com/200x100?text=Adidas" alt="Adidas">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://via.placeholder.com/200x100?text=Puma" alt="Puma">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://via.placeholder.com/200x100?text=Reebok" alt="Reebok">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://via.placeholder.com/200x100?text=UnderArmour" alt="Under Armour">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-content">
+            <div class="footer-info">
+                <h3>R&G Indumentaria</h3>
+                <p>Tu tienda de moda favorita</p>
+            </div>
+            <div class="footer-contact">
+                <p>Contacto: info@rygindumentaria.com</p>
+                <p>Tel: (342) 4066-472</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html> 

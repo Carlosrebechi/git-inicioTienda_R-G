@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ropa para Hombres - Tienda Unisex</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav>
+        <div class="logo-container">
+            <img src="./img/logo.jpg" alt="TIENDA R&G" class="logo">
+        </div>
+        <div class="menu-categorias">
+            <a href="hombres.html" class="tab-btn active">Hombres</a>
+            <a href="damas.html" class="tab-btn">Damas</a>
+            <a href="ninos.html" class="tab-btn">Niños</a>
+        </div>
+        <div class="carrito-icon">
+            <i class="fas fa-shopping-cart"></i>
+            <span id="contador-carrito">0</span>
+        </div>
+    </nav>
+
+    <!-- Agregar después del nav y antes del productos-container -->
+    <div class="banner-oferta">
+        <div class="banner-contenido">
+            <div class="oferta-texto">
+                <h3>¡OFERTA DE LA SEMANA!</h3>
+                <p class="oferta-detalle">1 Remera $9.000</p>
+                <p class="oferta-destacada">2 Remeras $16.000</p>
+                <p class="oferta-ahorro">¡APROVECHA EL DESCUENTO!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Resto del contenido específico para hombres -->
+    <div class="productos-container">
+        <section id="hombres" class="tab-content active">
+            <h2>Ropa para Hombres</h2>
+            <div class="productos-grid">
+                <div class="producto">
+                    <img src="https://via.placeholder.com/200x250" alt="Remera Hombre">
+                    <h3>Remera Básica</h3>
+                    <p>$25.00</p>
+                    <button class="agregar-carrito" data-id="h1" data-precio="25">Agregar al Carrito</button>
+                </div>
+                <div class="producto">
+                    <img src="https://via.placeholder.com/200x250" alt="Chomba Hombre">
+                    <h3>Chomba Polo</h3>
+                    <p>$35.00</p>
+                    <button class="agregar-carrito" data-id="h2" data-precio="35">Agregar al Carrito</button>
+                </div>
+                <div class="producto">
+                    <img src="https://via.placeholder.com/200x250" alt="Short Hombre">
+                    <h3>Short Deportivo</h3>
+                    <p>$30.00</p>
+                    <button class="agregar-carrito" data-id="h3" data-precio="30">Agregar al Carrito</button>
+                </div>
+                <div class="producto">
+                    <img src="https://via.placeholder.com/200x250" alt="Jeans Hombre">
+                    <h3>Jeans Clásico</h3>
+                    <p>$45.00</p>
+                    <button class="agregar-carrito" data-id="h4" data-precio="45">Agregar al Carrito</button>
+                </div>
+                <div class="producto">
+                    <img src="https://via.placeholder.com/200x250" alt="Buzo Hombre">
+                    <h3>Buzo Algodón</h3>
+                    <p>$40.00</p>
+                    <button class="agregar-carrito" data-id="h5" data-precio="40">Agregar al Carrito</button>
+                </div>
+                <div class="producto">
+                    <img src="https://via.placeholder.com/200x250" alt="Sweater Hombre">
+                    <h3>Sweater Lana</h3>
+                    <p>$50.00</p>
+                    <button class="agregar-carrito" data-id="h6" data-precio="50">Agregar al Carrito</button>
+                </div>
+                <div class="producto">
+                    <img src="https://via.placeholder.com/200x250" alt="Joggin Hombre">
+                    <h3>Joggin Deportivo</h3>
+                    <p>$38.00</p>
+                    <button class="agregar-carrito" data-id="h7" data-precio="38">Agregar al Carrito</button>
+                </div>
+                <div class="producto">
+                    <img src="https://via.placeholder.com/200x250" alt="Ojotas Hombre">
+                    <h3>Ojotas Verano</h3>
+                    <p>$20.00</p>
+                    <button class="agregar-carrito" data-id="h8" data-precio="20">Agregar al Carrito</button>
+                </div>
+                <div class="producto">
+                    <img src="https://via.placeholder.com/200x250" alt="Zapatillas Hombre">
+                    <h3>Zapatillas Urban</h3>
+                    <p>$60.00</p>
+                    <button class="agregar-carrito" data-id="h9" data-precio="60">Agregar al Carrito</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Carrito y modales -->
+    <div class="carrito-panel" id="carrito-panel">
+        <div class="carrito-header">
+            <h2>Carrito de Compras</h2>
+            <button class="cerrar-carrito" id="cerrar-carrito">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div id="items-carrito"></div>
+        <div class="total">
+            <p>Total: $<span id="total-carrito">0</span></p>
+            <button id="vaciar-carrito">Vaciar Carrito</button>
+            <button id="finalizar-compra" class="finalizar-compra-btn">Finalizar Compra</button>
+        </div>
+    </div>
+
+    <div class="notificacion" id="notificacion">
+        <span id="mensaje-notificacion"></span>
+    </div>
+
+    <div id="checkoutModal" class="modal">
+        <div class="modal-content checkout-modal">
+            <span class="close" onclick="cerrarModal('checkoutModal')">&times;</span>
+            <h2>Finalizar Compra</h2>
+            <div id="checkout-content">
+                <!-- Se llenará dinámicamente -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Agregar antes de los scripts -->
+    <footer class="footer">
+        <div class="carousel-container">
+            <div class="carousel">
+                <div class="carousel-track">
+                    <div class="carousel-slide">
+                        <img src="https://via.placeholder.com/200x100?text=Nike" alt="Nike">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://via.placeholder.com/200x100?text=Adidas" alt="Adidas">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://via.placeholder.com/200x100?text=Puma" alt="Puma">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://via.placeholder.com/200x100?text=Reebok" alt="Reebok">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://via.placeholder.com/200x100?text=UnderArmour" alt="Under Armour">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-content">
+            <div class="footer-info">
+                <h3>R&G Indumentaria</h3>
+                <p>Tu tienda de moda favorita</p>
+            </div>
+            <div class="footer-contact">
+                <p>Contacto: info@rygindumentaria.com</p>
+                <p>Tel: (342) 4066-472</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="auth.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
